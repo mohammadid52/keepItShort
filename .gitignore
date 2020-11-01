@@ -10,6 +10,7 @@
 
 # production
 /build
+/FirebaseConfig
 
 # misc
 .DS_Store
