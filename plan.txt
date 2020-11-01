@@ -1,0 +1,36 @@
+Notes
+
+Key Features :
+Authentication
+Display All notes 
+search bar
+realtime saving in database
+
+Sidebar: 
+Notes
+Archive 
+Trash
+
+Note: 
+change background colour
+pin option
+
+
+Pages : [
+#1 Login Page
+#2 Register Page 
+#3 Home Page 
+#4 Archive Page
+#5 Trash Page
+]
+
+Change Notes using dispatch {
+    #1 - get the location.pathname 
+    #2 - if location = "/" then dispatch(loadHomeData()) to change the value of dataKey.
+}
+
+What's New {
+    Show user details in header - user icon (like google keep)
+    Change theme - light/dark menu in settings and save that in localStorage 
+    change modal ui 
+}

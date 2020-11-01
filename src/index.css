@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'ProductSans';
+  src: local('ProductSans'),
+    url('./assets/fonts/Product_Sans_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ProductSansBold';
+  src: local('ProductSansBold'),
+    url('./assets/fonts/Product_Sans_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ProductSansBoldItalic';
+  src: local('ProductSansBoldItalic'),
+    url('./assets/fonts/Product_Sans_Bold_Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ProductSansItalic';
+  src: local('ProductSansItalic'),
+    url('./assets/fonts/Product_Sans_Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SamsungRegular';
+  src: local('SamsungRegular'),
+    url('./assets/fonts/Samsung_Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SamsungBold';
+  src: local('SamsungBold'),
+    url('./assets/fonts/Samsung_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Sofia';
+  src: local('Sofia'),
+    url('./assets/fonts/sofiapro-light.otf') format('opentype');
+}
+
+*:focus {
+  outline: none;
+}
+
+#components-layout-demo-fixed .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.ant-layout-header {
+  background-color: #fff !important;
+  margin-left: -50px;
+}
+.ant-input-affix-wrapper > input.ant-input {
+  color: #f56a79;
+  letter-spacing: 1px;
+}

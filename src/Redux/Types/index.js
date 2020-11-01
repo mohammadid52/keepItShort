@@ -1,0 +1,44 @@
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_IN_ERR = 'SIGN_IN_ERR';
+export const REGISTER = 'REGISTER';
+export const REGISTER_ERR = 'REGISTER_ERR';
+export const SIGN_OUT = 'SIGN_OUT';
+export const SIGN_OUT_ERR = 'SIGN_OUT_ERR';
+
+// *Note Types
+
+export const ADD_NOTE = 'ADD_NOTE';
+export const ADD_NOTE_ERR = 'ADD_NOTE_ERR';
+export const START_LOADER = 'START_LOADER';
+export const STOP_LOADER = 'STOP_LOADER';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const DELETE_NOTE_ERR = 'DELETE_NOTE_ERR';
+export const CHANGE_TEXT = 'CHANGE_TEXT';
+export const ADD_TO_ARCHIVE = 'ADD_TO_ARCHIVE';
+export const ADD_TO_ARCHIVE_ERR = 'ADD_TO_ARCHIVE_ERR';
+export const ADD_TO_TRASH = 'ADD_TO_TRASH';
+export const ADD_TO_TRASH_ERR = 'ADD_TO_TRASH_ERR';
+export const REMOVE_FROM_ARCHIVE = 'REMOVE_FROM_ARCHIVE';
+export const REMOVE_FROM_ARCHIVE_ERR = 'REMOVE_FROM_ARCHIVE_ERR';
+export const CHANGE_BACKGROUNDCOLOR_CARD = 'CHANGE_BACKGROUNDCOLOR_CARD';
+export const CHANGE_TEXTCOLOR_CARD = 'CHANGE_TEXTCOLOR_CARD';
+export const CHANGE_THEMECOLOR_CARD_ERR = 'CHANGE_THEMECOLOR_CARD_ERR';
+export const RECOVER_NOTE = 'RECOVER_NOTE';
+export const RECOVER_NOTE_ERR = 'RECOVER_NOTE_ERR';
+export const CLEAR_NOTE_DATA_FROM_STATE = 'CLEAR_NOTE_DATA_FROM_STATE';
+
+// *Show Modal
+export const SHOWMODAL = 'SHOWMODAL';
+export const ONOK = 'ONOK';
+export const ONCANCEL = 'ONCANCEL';
+export const CHANGE_NOTE_TEXT = 'CHANGE_NOTE_TEXT';
+
+// *Home Types
+export const START_REFRESH_PAGE = 'START_REFRESH_PAGE';
+export const STOP_REFRESH_PAGE = 'STOP_REFRESH_PAGE';
+export const SEARCH_NOTE = 'SEARCH_NOTE';
+
+// *Data Types
+export const LOAD_HOME_DATA = 'LOAD_HOME_DATA';
+export const LOAD_ARCHIVE_DATA = 'LOAD_ARCHIVE_DATA';
+export const LOAD_TRASH_DATA = 'LOAD_TRASH_DATA';
