@@ -128,7 +128,7 @@ UserInfo.propTypes = {
 export default UserInfo;
 
 const UserCard = styled.div`
-  height: 300px;
+  height: 370px;
   width: 250px;
 `;
 const PhotoContainer = styled.div`
@@ -144,7 +144,7 @@ const UserPhoto = styled(Avatar)`
 `;
 
 const UserDetailSection = styled.div`
-  height: 140px;
+  height: 190px;
 `;
 
 const NameContainer = styled.div`
