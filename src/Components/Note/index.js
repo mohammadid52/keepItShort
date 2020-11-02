@@ -40,6 +40,38 @@ const Note = ({ data }) => {
     </OtherOptionsDropdown>,
   ];
 
+  const MyCard = styled(Card)`
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    box-shadow: 0px 5px 20px -5px ${backgroundColor};
+    :hover {
+      box-shadow: none;
+    }
+    transition: box-shadow 0.3s;
+    .ant-card-actions {
+      background: transparent !important;
+      border: none;
+    }
+    .ant-card-actions > li {
+      border: none;
+      color: #fff !important;
+      :hover {
+        color: #fff !important;
+      }
+    }
+    .ant-card-actions > li > span > .anticon {
+      color: #fff !important;
+      :hover {
+        color: #fff !important;
+      }
+      .ant-card-actions > li > span {
+        :hover {
+          color: #fff !important;
+        }
+      }
+    }
+  `;
+
   return (
     <Col span={8}>
       <MyCard
@@ -48,7 +80,6 @@ const Note = ({ data }) => {
         style={{
           width: '100%',
           backgroundColor,
-          boxShadow: `0px 5px 20px -5px ${backgroundColor}`,
         }}
         actions={actions}>
         <NoteText
@@ -68,37 +99,6 @@ const Note = ({ data }) => {
 };
 
 export default Note;
-
-const MyCard = styled(Card)`
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-  :hover {
-    box-shadow: none;
-  }
-  transition: box-shadow 0.3s;
-  .ant-card-actions {
-    background: transparent !important;
-    border: none;
-  }
-  .ant-card-actions > li {
-    border: none;
-    color: #fff !important;
-    :hover {
-      color: #fff !important;
-    }
-  }
-  .ant-card-actions > li > span > .anticon {
-    color: #fff !important;
-    :hover {
-      color: #fff !important;
-    }
-    .ant-card-actions > li > span {
-      :hover {
-        color: #fff !important;
-      }
-    }
-  }
-`;
 
 const TimeContainer = styled(Meta)`
   .ant-card-meta-description {
