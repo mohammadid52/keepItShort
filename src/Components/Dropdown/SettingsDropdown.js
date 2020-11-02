@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import { Dropdown, Menu } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
 import { map } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { ColorList } from '../../Constants';
 import { Text } from '..';
 import { Actions } from '../../Redux';
@@ -17,8 +17,9 @@ const MenuContainer = styled(Menu)`
   transition-duration: 0.3s;
   transition-timing-function: ease;
   height: 200px;
-  width: 140px;
-  overflow: scroll;
+  width: 170px;
+  padding: 2px 5px;
+  overflow: auto;
   transition-delay: 0s;
 `;
 
@@ -51,10 +52,12 @@ const SettingsDropdown = ({ data, children }) => {
   const changeCardThemeHandler = (theme) => {
     dispatch(changeCardTheme(data, uid, theme));
   };
+
   const menu = (
-    <MenuContainer style={{ borderRadius: 10 }}>
+    <MenuContainer style={{ borderRadius: 15 }}>
       {map(ColorList, ({ name, color, textColor }) => (
         <ItemContainer
+          key={name}
           onClick={() => changeCardThemeHandler({ name, color, textColor })}>
           <ColorIcon style={{ backgroundColor: color }} />
           <ColorName>{name}</ColorName>
@@ -69,6 +72,6 @@ const SettingsDropdown = ({ data, children }) => {
 export default SettingsDropdown;
 
 SettingsDropdown.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
 };

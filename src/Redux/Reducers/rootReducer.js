@@ -5,6 +5,7 @@ import authReducer from './authReducer';
 import noteReducer from './noteReducer';
 import modalReducer from './modalReducer';
 import homeReducer from './homeReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
   firebase: firebaseReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   note: noteReducer,
   modal: modalReducer,
   home: homeReducer,
+  user: userReducer,
 });

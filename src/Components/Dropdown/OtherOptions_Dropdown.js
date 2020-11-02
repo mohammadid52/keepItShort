@@ -73,6 +73,6 @@ const MyDropdown = ({ data, children }) => {
 export default MyDropdown;
 
 MyDropdown.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
 };

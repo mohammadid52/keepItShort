@@ -19,7 +19,18 @@ import {
   loadTrashData,
   loadSearchedData,
   changeSearchText,
+  showUserCard,
+  hideUserCard,
+  enableDarkMode,
+  disableDarkMode,
 } from './homeActions';
+
+import {
+  setPhotoToStorage,
+  setImageToLocal,
+  getUserImage,
+  showImageError,
+} from './userActions';
 
 const actions = {
   logOut,
@@ -45,5 +56,13 @@ const actions = {
   changeNoteText,
   startLoadingCard,
   stopLoadingCard,
+  showUserCard,
+  hideUserCard,
+  setPhotoToStorage,
+  setImageToLocal,
+  getUserImage,
+  showImageError,
+  enableDarkMode,
+  disableDarkMode,
 };
 export default actions;

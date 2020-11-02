@@ -15,9 +15,8 @@ const Home = () => {
   return (
     <Layout style={{ height: '100vh', width: '100vw' }}>
       <Sider
-        style={{ height: '100%', background: '#fff', zIndex: 10 }}
-        width={200}
-        className="site-layout-background">
+        style={{ height: '100%', zIndex: 10 }}
+        width={200}>
         <Sidebar />
       </Sider>
       <Layout>

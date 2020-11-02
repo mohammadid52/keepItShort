@@ -1,12 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import { Empty, Row } from 'antd';
+import { Col, Empty, Row } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Note } from '..';
+import { Note, Text } from '..';
 import { Actions } from '../../Redux';
 
 const {

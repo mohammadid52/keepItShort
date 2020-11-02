@@ -44,10 +44,8 @@ const noteReducer = (state = initialState, action) => {
       message.warn(action.msg, 2);
       return state;
     case ActionTypes.CHANGE_BACKGROUNDCOLOR_CARD:
-      message.success(action.msg, 1);
       return state;
     case ActionTypes.CHANGE_THEMECOLOR_CARD_ERR:
-      message.error(action.err, 2);
       return state;
     case ActionTypes.RECOVER_NOTE:
       message.success(action.msg, 2);

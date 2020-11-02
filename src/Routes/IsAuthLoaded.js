@@ -5,6 +5,7 @@ import { Loading } from '../Pages';
 
 export default ({ children }) => {
   const { auth } = useSelector((state) => state.firebase);
+
   if (!isLoaded(auth)) {
     return <Loading />;
   }

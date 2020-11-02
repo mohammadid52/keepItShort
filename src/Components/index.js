@@ -10,9 +10,12 @@ import Modal from './Modal';
 import PopConfirm from './PopConfirm';
 import OtherOptionsDropdown from './Dropdown/OtherOptions_Dropdown';
 import SettingsDropdown from './Dropdown/SettingsDropdown';
+import OnHeaderDropdown from './Dropdown/OnHeaderDropdown';
 import MainContent from './Content';
+import UserInfo from './Header/UserInfo';
 
 export {
+  OnHeaderDropdown,
   Button,
   Text,
   Loader,
@@ -26,4 +29,5 @@ export {
   OtherOptionsDropdown,
   SettingsDropdown,
   MainContent,
+  UserInfo,
 };

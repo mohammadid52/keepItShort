@@ -1,36 +1,19 @@
-Notes
+What to change to dark mode ? 
 
-Key Features :
-Authentication
-Display All notes 
-search bar
-realtime saving in database
-
-Sidebar: 
-Notes
-Archive 
-Trash
-
-Note: 
-change background colour
-pin option
-
-
-Pages : [
-#1 Login Page
-#2 Register Page 
-#3 Home Page 
-#4 Archive Page
-#5 Trash Page
-]
-
-Change Notes using dispatch {
-    #1 - get the location.pathname 
-    #2 - if location = "/" then dispatch(loadHomeData()) to change the value of dataKey.
+main background color {
+    in Content.js #f6f6f6 => #394867
 }
 
-What's New {
-    Show user details in header - user icon (like google keep)
-    Change theme - light/dark menu in settings and save that in localStorage 
-    change modal ui 
+Sidebar color {
+    change mode from "light" to "dark"
+    header text color to white
+}
+
+Header color {
+    header color #f6f6f6 => #394867
+    icon color #000 => #f6f6f6
+    userCard {
+        background #f6f6f6 => #394867
+        color #000 => #f6f6f6
+    }
 }

@@ -29,7 +29,7 @@ Text.propTypes = {
   type: PropTypes.string,
   level: PropTypes.number,
   editable: PropTypes.bool,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default Text;

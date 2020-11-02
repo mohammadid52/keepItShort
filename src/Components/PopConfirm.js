@@ -44,6 +44,6 @@ const PopConfirm = ({ data, children }) => {
 export default PopConfirm;
 
 PopConfirm.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
 };

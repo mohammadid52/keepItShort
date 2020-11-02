@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { message } from 'antd';
 import { filter } from 'lodash';
 import * as actionTypes from '../Types';
@@ -16,7 +17,7 @@ export const refreshPage = (msgDuration, loadingTime) => (dispatch) => {
   }, loadingTime);
 };
 
-export const loadArchiveData = (notes) => {
+export const loadArchiveData = (notes) => (dispatch) => {
   if (!notes) {
     return [];
   }
@@ -27,7 +28,7 @@ export const loadArchiveData = (notes) => {
   return data;
 };
 
-export const loadTrashData = (notes) => {
+export const loadTrashData = (notes) => (dispatch) => {
   const data = filter(
     notes,
     (note) => !note?.actions.archived && note?.actions.trash,
@@ -35,14 +36,14 @@ export const loadTrashData = (notes) => {
   return data;
 };
 
-export const loadHomeData = (notes) => {
+export const loadHomeData = (notes = []) => (dispatch) => {
   const data = filter(
     notes,
     (note) => !note?.actions.archived && !note?.actions.trash,
   );
   return data;
 };
-export const loadSearchedData = (notes, searchValue) => {
+export const loadSearchedData = (notes = [], searchValue) => (dispatch) => {
   const data = filter(
     notes,
     (note) => note.text.toLowerCase().indexOf(searchValue) > -1,
@@ -52,4 +53,18 @@ export const loadSearchedData = (notes, searchValue) => {
 
 export const changeSearchText = (val) => (dispatch) => {
   dispatch({ type: actionTypes.SEARCH_NOTE, val });
+};
+
+export const showUserCard = () => (dispatch) => {
+  dispatch({ type: actionTypes.SHOW_USERCARD });
+};
+export const hideUserCard = () => (dispatch) => {
+  dispatch({ type: actionTypes.HIDE_USERCARD });
+};
+
+export const enableDarkMode = () => (dispatch) => {
+  dispatch({ type: actionTypes.ENABLE_DARKMODE, msg: 'Dark Mode Enabled' });
+};
+export const disableDarkMode = () => (dispatch) => {
+  dispatch({ type: actionTypes.DISABLE_DARKMODE, msg: 'Light Mode Enabled' });
 };

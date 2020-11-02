@@ -55,6 +55,15 @@
   margin-left: -50px;
 }
 .ant-input-affix-wrapper > input.ant-input {
-  color: #f56a79;
+  color: #394867;
   letter-spacing: 1px;
+}
+
+#components-dropdown-demo-dropdown-button .ant-dropdown-button {
+  margin: 0 8px 8px 0;
+}
+
+#components-dropdown-demo-dropdown-button
+  .ant-btn-group-rtl.ant-dropdown-button {
+  margin: 0 0 8px 8px;
 }

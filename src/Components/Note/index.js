@@ -1,11 +1,10 @@
 import React from 'react';
-import { Card, Col, Tooltip, Typography } from 'antd';
+import { Card, Col, Typography } from 'antd';
 import styled from 'styled-components';
 import { EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { BiTrash } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { PopConfirm, OtherOptionsDropdown, SettingsDropdown } from '..';
 import { Actions } from '../../Redux';
@@ -17,8 +16,6 @@ const { Meta } = Card;
 
 const Note = ({ data }) => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  const onTrashpage = pathname === '/trash';
   const { loading } = useSelector((state) => state.note);
 
   const updateBody = (val) => {
@@ -31,13 +28,17 @@ const Note = ({ data }) => {
     theme: { backgroundColor, textColor },
   } = data;
 
-  const TimeContainer = styled(Meta)`
-    .ant-card-meta-description {
-      color: ${textColor};
-      font-family: 'Rubik', sans-serif;
-      font-weight: 400;
-    }
-  `;
+  const actions = [
+    <SettingsDropdown data={data}>
+      <SettingOutlined key="setting" />
+    </SettingsDropdown>,
+    <PopConfirm data={data}>
+      <BiTrash size={16} key="delete" />
+    </PopConfirm>,
+    <OtherOptionsDropdown data={data}>
+      <EllipsisOutlined key="ellipsis" />
+    </OtherOptionsDropdown>,
+  ];
 
   return (
     <Col span={8}>
@@ -47,22 +48,9 @@ const Note = ({ data }) => {
         style={{
           width: '100%',
           backgroundColor,
+          boxShadow: `0 5 20 -5 ${backgroundColor}`,
         }}
-        actions={[
-          <SettingsDropdown data={data}>
-            <SettingOutlined key="setting" />
-          </SettingsDropdown>,
-          <PopConfirm data={data}>
-            <Tooltip
-              title={onTrashpage ? 'Delete note' : 'Add to trash'}
-              placement="bottom">
-              <BiTrash size={16} key="delete" />
-            </Tooltip>
-          </PopConfirm>,
-          <OtherOptionsDropdown data={data}>
-            <EllipsisOutlined key="ellipsis" />
-          </OtherOptionsDropdown>,
-        ]}>
+        actions={actions}>
         <NoteText
           editable={{
             onChange: updateBody,
@@ -87,8 +75,37 @@ const MyCard = styled(Card)`
   :hover {
     box-shadow: none;
   }
-  box-shadow: 0 20px 30px -10px rgba(0, 64, 128, 0.2);
   transition: box-shadow 0.3s;
+  .ant-card-actions {
+    background: transparent !important;
+    border: none;
+  }
+  .ant-card-actions > li {
+    border: none;
+    color: #fff !important;
+    :hover {
+      color: #fff !important;
+    }
+  }
+  .ant-card-actions > li > span > .anticon {
+    color: #fff !important;
+    :hover {
+      color: #fff !important;
+    }
+    .ant-card-actions > li > span {
+      :hover {
+        color: #fff !important;
+      }
+    }
+  }
+`;
+
+const TimeContainer = styled(Meta)`
+  .ant-card-meta-description {
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+  }
 `;
 
 const NoteText = styled(Paragraph)`
@@ -98,5 +115,5 @@ const NoteText = styled(Paragraph)`
 `;
 
 Note.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object.isRequired,
 };

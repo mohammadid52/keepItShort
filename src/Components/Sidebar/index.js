@@ -5,9 +5,12 @@ import { FaRegStickyNote } from 'react-icons/fa';
 import { BiArchiveIn } from 'react-icons/bi';
 import { FiTrash } from 'react-icons/fi';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Text } from '..';
+import { textColorMode } from '../../Constants';
 
 const Sidebar = () => {
+  const { darkMode } = useSelector((state) => state.home);
   const history = useHistory();
   const { pathname } = useLocation();
   const goToArchivedPage = () => {
@@ -19,15 +22,18 @@ const Sidebar = () => {
   const goToTrashPage = () => {
     history.push('/trash');
   };
+  const color = textColorMode(darkMode);
 
   return (
     <Menu
-      theme="light"
+      theme={darkMode ? 'dark' : 'light'}
       mode="inline"
       defaultSelectedKeys={[pathname]}
       style={{ height: '100%' }}>
       <SideHeaderText>
-        <Text level={3}>Short Notes!</Text>
+        <Text level={3} style={{ color }}>
+          Short Notes!
+        </Text>
         <Divider dashed />
       </SideHeaderText>
       <Menu.Item
