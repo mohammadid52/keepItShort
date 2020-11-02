@@ -2,6 +2,7 @@ import { Menu, Dropdown } from 'antd';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Actions } from '../../Redux';
 
 const { enableDarkMode, disableDarkMode } = Actions;
@@ -46,6 +47,10 @@ const OnHeaderDropdown = ({ children }) => {
       {children}
     </Dropdown>
   );
+};
+
+OnHeaderDropdown.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export default OnHeaderDropdown;

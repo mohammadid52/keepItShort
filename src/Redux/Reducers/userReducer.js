@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import * as actionTypes from '../Types';
 
 const initialState = {

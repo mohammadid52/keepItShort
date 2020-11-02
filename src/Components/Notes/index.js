@@ -1,12 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import { Col, Empty, Row } from 'antd';
+import { Empty, Row } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Note, Text } from '..';
+import { values, map } from 'lodash';
+import { Note } from '..';
 import { Actions } from '../../Redux';
 
 const {
@@ -80,7 +81,7 @@ const Notes = ({ uid }) => {
             />
           </EmptyContainer>
         ) : (
-          Object.values(data).map((noteData) => (
+          map(values(data), (noteData) => (
             <Note key={noteData.id} data={noteData} />
           ))
         )}

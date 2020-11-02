@@ -4,27 +4,24 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const SearchBarComponent = ({ onChange, searchText }) => {
-  console.log(searchText);
-  return (
-    <SearchContainer>
-      <SearchBar
-        size="large"
-        placeholder="Search"
-        bordered={false}
-        onChange={onChange}
-        value={searchText}
-        prefix={
-          <AiOutlineSearch
-            color="#2A8FF7"
-            size={22}
-            style={{ marginRight: 10 }}
-          />
-        }
-      />
-    </SearchContainer>
-  );
-};
+const SearchBarComponent = ({ onChange, searchText }) => (
+  <SearchContainer>
+    <SearchBar
+      size="large"
+      placeholder="Search"
+      bordered={false}
+      onChange={onChange}
+      value={searchText}
+      prefix={
+        <AiOutlineSearch
+          color="#2A8FF7"
+          size={22}
+          style={{ marginRight: 10 }}
+        />
+      }
+    />
+  </SearchContainer>
+);
 
 export default SearchBarComponent;
 
