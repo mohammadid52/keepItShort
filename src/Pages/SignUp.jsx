@@ -8,31 +8,31 @@ import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { Checkbox, Typography } from 'antd';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useFirebase } from 'react-redux-firebase';
 import { Text, Button, Loader } from '../Components';
 import { Colors } from '../Constants';
 import pngImage from '../assets/images/loginImage.png';
 import { Actions } from '../Redux';
 
-const { register } = Actions;
+const { register, signInWithGoogle } = Actions;
 
 const SignUp = () => {
+  const firebase = useFirebase();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [loading, setLoading] = useState(false);
   const { uid } = useSelector((state) => state.firebase.auth);
+  const { loading } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const onFinish = async (e) => {
     e.preventDefault();
-    setLoading(true);
     const creds = { username, email, password };
-    try {
+
       dispatch(register(creds));
-    } catch (error) {
-      // ! do nothing
-    } finally {
-      setLoading(false);
-    }
+  };
+  const withGoogle = () => {
+    dispatch(signInWithGoogle(firebase));
   };
   if (uid) {
     return <Redirect to="/" />;
@@ -105,9 +105,7 @@ const SignUp = () => {
               <RememberMe>
                 Remember me
               </RememberMe>
-              {/* <ForgotText>
-                Forgot Password?
-              </ForgotText> */}
+
             </InputFooter>
 
             <FooterActions>
@@ -134,7 +132,7 @@ const SignUp = () => {
               <ORtext>Or you can join with</ORtext>
               <OtherProviderButtons>
                 <GoogleButton>
-                  <FcGoogle size={20} />
+                  <FcGoogle onClick={withGoogle} size={20} />
                 </GoogleButton>
                 <FacebookButton>
                   <FaFacebookF size={20} color="#fff" />

@@ -7,29 +7,28 @@ import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { Checkbox, Typography } from 'antd';
 import { Redirect, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useFirebase } from 'react-redux-firebase';
 import { Text, Button, Loader } from '../Components';
 import { Colors } from '../Constants';
 import pngImage from '../assets/images/loginImage.png';
 import { Actions } from '../Redux';
 
-const { login } = Actions;
+const { login, signInWithGoogle } = Actions;
 const Login = () => {
+  const firebase = useFirebase();
+
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const { uid } = useSelector((state) => state.firebase.auth);
+  const { loading } = useSelector((state) => state.auth);
   const onFinish = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const creds = { email, password };
-      dispatch(login(creds));
-    } catch (error) {
-      // ! do nothing
-    } finally {
-      setLoading(false);
-    }
+    const creds = { email, password };
+    dispatch(login(creds));
+  };
+  const withGoogle = () => {
+    dispatch(signInWithGoogle(firebase));
   };
   if (uid) {
     return <Redirect to="/" />;
@@ -124,7 +123,7 @@ const Login = () => {
               <ORtext>Or you can join with</ORtext>
               <OtherProviderButtons>
                 <GoogleButton>
-                  <FcGoogle size={20} />
+                  <FcGoogle onClick={withGoogle} size={20} />
                 </GoogleButton>
                 <FacebookButton>
                   <FaFacebookF size={20} color="#fff" />

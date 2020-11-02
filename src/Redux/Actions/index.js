@@ -1,4 +1,4 @@
-import { register, login, logOut } from './authActions';
+import { register, login, logOut, signInWithGoogle } from './authActions';
 import { ShowModal, OnCancel, OnOk, changeNoteText } from './modalActions';
 import {
   addNewNote,
@@ -36,6 +36,7 @@ const actions = {
   logOut,
   login,
   register,
+  signInWithGoogle,
   ShowModal,
   OnCancel,
   OnOk,
