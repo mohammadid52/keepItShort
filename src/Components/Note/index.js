@@ -48,7 +48,7 @@ const Note = ({ data }) => {
         style={{
           width: '100%',
           backgroundColor,
-          boxShadow: `0 5 20 -5 ${backgroundColor}`,
+          boxShadow: `0px 5px 20px -5px ${backgroundColor}`,
         }}
         actions={actions}>
         <NoteText
